@@ -1,0 +1,10 @@
+clear all; clc;
+T = [-50 -30 0 60 90 110];
+c = [1250 1280 1350 1480 1580 1700];
+
+Tprime = log(T);
+
+cprime = 
+cprimeprime = log(c);
+
+plot(Tprime, cprime);

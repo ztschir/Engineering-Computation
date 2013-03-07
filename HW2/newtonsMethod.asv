@@ -1,0 +1,22 @@
+function [root, numIter] = newtonsMethod(f, a, b, ep)
+
+fprintf('n      x       f(x)\n');
+
+fprime = diff(f, x);
+n = 1;
+if a == 0
+    x0 = b;
+else
+    x0 = a;
+end
+
+
+while(abs(f(x0)) < ep)
+    fprintf('%d   %4.2f    %4.2f    %4.2f    %4.2f    %4.2f    %4.2f\n', n,a, f(a), b, f(b), x, f(x));
+    x0 = x0 - (f(x0)/fprime(x0));
+    n = n + 1;
+end
+
+root = x0;
+numIter = n;
+

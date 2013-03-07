@@ -1,0 +1,24 @@
+t = [0 5 10 15 20 25 30]; 
+c = [14.6 12.8 11.3 10.1 9.09 8.26 7.56];
+
+
+linear = polyfit(t,c,1);
+quad = polyfit(t,c,2);
+cubic = polyfit(t,c,3);
+
+
+totalerrLin = sum((polyval(linear,t) - c).^2)
+totalerrQuad = sum((polyval(quad,t) - c).^2)
+totalerrCubic = sum((polyval(cubic,t) - c).^2)
+
+standerrLin = sqrt(sum((polyval(linear,t) - c).^2))
+standerrQuad = sqrt(sum((polyval(linear,t) - c).^2))
+standerrCubic = sqrt(sum((polyval(linear,t) - c).^2))
+
+avgerrLin = standerrLin/length(t)
+avgerrQuad = standerrLin/length(t)
+avgerrCubic = standerrLin/length(t)
+
+relativeerrLin = standerrLin/sqrt(sum(c.^2))
+relativeerrQuad = standerrLin/sqrt(sum(c.^2))
+relativeerr = standerrLin/sqrt(sum(c.^2))

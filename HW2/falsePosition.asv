@@ -1,0 +1,18 @@
+function [root, numIter] = falsePosition(f, x0, ep)
+
+n = 1;
+ 
+while (abs(f(x)) > ep)
+    fprime = diff(f, x);
+    
+    
+    if(f(x)*f(a) > 0)
+        a = x;
+    else
+        b = x;
+    end
+    n = n + 1;
+end
+
+root = x;
+numIter = n;

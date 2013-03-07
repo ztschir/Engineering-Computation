@@ -1,0 +1,12 @@
+clear all; clc;
+a = @(y) (-9.81*(6.37e6)^2)/(6.37e6 + y)^2;
+v = matlabFunction(int(a, sym('t')));
+
+dt = 10;
+t=0:dt:300;
+y(1) = 0;
+for n=1:length(t)-1
+    y(n+1)=y(n)+dt*v(t(n),y(n));
+end
+plot(t,y,'.');
+hold on;
